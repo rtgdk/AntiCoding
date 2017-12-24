@@ -1,3 +1,5 @@
+# AntiCoding
+App for anticoding event
 # Installing and running up the application (For ubuntu and windows)
 You need to have python(https://www.python.org/downloads/) and pip(https://pip.pypa.io/en/stable/installing/) installed.
 
