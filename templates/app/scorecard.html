@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block body1 %}
+{% if user.is_authenticated %}
+	 <section class="bg-secondary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading text-white">Scorecard</h2>
+            <hr class="light my-4">
+			{% ifequal username.round1score 0 %}
+            <p class="text-faded mb-4">Round 1: {{username.round1score}}</p>
+			{% else %}
+			<p class="text-faded mb-4">Round 1: Yet to be calculated</p>
+			{% endifequal %}
+			<p class="text-faded mb-4">Round 2: {{username.round2score}}</p>
+			<p class="text-faded mb-4">Total: {{totalscore}}</p>
+			<p> Round 2 score is not the final score. Your code will need to be checked for correctness.</p>
+			</div>
+			</div>
+        </div>
+      </section>
+	{% else %}
+	Please login first!
+	{% endif %}
+   
+
+{% endblock %}	
