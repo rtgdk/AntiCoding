@@ -2,124 +2,72 @@
 {% load static %}
 {% load staticfiles %}
 <html lang="en">
+
   <head>
+
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-	<link rel="icon" href={% static 'images/logo.png' %}>
-    <title >Anti-Coding {% block title %}{% endblock %}</title>
 
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet" type="text/css">
-    
- {% block head_block %}{% endblock %}
-<style>
-.arrow {
-    font-size: 12px;
-}
-.container .jumbotron {
-padding-left: 0px; !important
-}
-@media (min-width: 1281px){
-.container {
-    width: 1370px;
-}
-}
-@media (min-width: 992px) and (max-width: 1281px){
-.container {
-    width: 970px;
-}
-}
-@media (min-width: 768px) and (max-width: 992px){
-.container {
-    width: 750px;
-}
-}
-.table > tbody > tr > td {
-  vertical-align: middle;
-  font-size: 16.5px;
-} 
+    <title>AntiCoding By CSA</title>
 
-input[type=search] {
-            background: white;
-            font-weight: bold;
-            border-color: #337ab7;
-            border-style: solid;
-            border-width: 2px 2px 2px 4px;
-            outline: none;
-            background-color: white;
-        background-image:  url({% static 'images/searchicon.png' %});
-        background-position: 4px 4px; 
-        background-repeat: no-repeat;
-            padding: 0px 20px 0px 30px;
-            width: 250px;
-        }
-      /*Css to target the dropdownbox*/
-ul.ui-autocomplete {
-            background: white;
-            color: #0084b4; !important;
-            -moz-border-radius: 15px;
-            border-radius: 15px;
-            width: 250px;
-}
-li.ui-menu-item {
-            font-size:25px;
-}
-.navbar-inverse {
-    background-color: #000000;
-    border-color: #080808;
-}
-.navbar-inverse .navbar-brand {
-    color: #fff;
-    background-color: transparent;
-}
-.h4{
-  color:#337ab7;; !important;
-}
+    <!-- Bootstrap core CSS -->
+	<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
 
-</style>
-    </head>
-  <body>
+    <!-- Custom fonts for this template -->
+	<link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
-     <nav class="navbar navbar-inverse navbar-fixed-top">
+    <!-- Custom styles for this template -->
+	<link href="{% static 'css/creative.min.css' %}" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/app/">Anti-Coding</a>
-             
+        <a class="navbar-brand js-scroll-trigger" href="/app/">AntiCoding</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+		  {% if user.is_authenticated %}
+		  <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/app/logout/">LogOut</a>
+            </li>
+			{% else %}
+		  <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/app/register/">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/app/login/">Login</a>
+            </li>
+			{% endif %}
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/app/round1/">Round 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/app/round2/">Round 2</a>
+            </li>
+           </ul>
         </div>
-        <!--<form class="navbar-form navbar-centre">
-            <div class="form-group">
-              <input type="search" id="search" placeholder="Search..." class="form-control">
-            </div>
-        </form>-->
-        <div id="navbar" class="navbar-collapse collapse">
-        
-        </div><!--/.navbar-collapse -->
       </div>
     </nav>
+	{% block body1 %} {% endblock %}
+    
+	
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    
+		
+    <!-- Custom scripts for this template -->
+	<script src="{% static 'js/creative.min.js' %}"></script>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    {% block body1 %} {% endblock %}
-      <hr>
-     
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/jquery-ui.js' %}"></script>
-        <!--<script>
-        $(document).ready(function () {
-                $("#search").autocomplete({
-                    source: "/app/search/",
-                });
-        });
-        </script>-->
-    {% block script_block %}{% endblock %}
   </body>
+
 </html>

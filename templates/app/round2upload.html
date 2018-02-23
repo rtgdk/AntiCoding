@@ -1,0 +1,59 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block body1 %}
+{% if user.is_authenticated %}
+
+{% ifequal username.endround2 0 %}
+<section class="bg-secondary" id="about"> 
+ <div class="container">
+ <div class="col-lg-8 mx-auto text-center">
+	<form class="form-horizontal" action="" enctype="multipart/form-data"  method="post">
+	{% csrf_token %}
+  <div class="form-group">
+    <h2 class="section-heading text-white">Upload Files Here</h2>
+	<hr class="light my-4">
+	<div class="form-group">
+    <input type="file" class="form-control-file" id="file" name="file">
+	</div>
+	<div class="form-group">
+	<select class="form-control" name="code" id="code">
+  <option value="1">Problem 1</option>
+  <option value="2">Problem 2</option>
+  <option value="3">Problem 3</option>
+  <option value="4">Problem 4</option>
+  <option value="5">Problem 5</option>
+</select>
+</div>
+	<div class="form-group"> <div class="col-sm-2"></div><input type="submit" class=" btn btn-lg btn-info " name="submit" value="Upload File" /></div>
+  </div>
+  </form>
+  
+  
+  </div>
+  </div>
+
+</section>
+<section class="bg-secondary" id="about"> 
+ <div class="container">
+ <div class="col-lg-8 mx-auto text-center">
+	<a class="btn btn-dark btn-xl js-scroll-trigger" href="/app/endround2/">End Round 2</a>
+	Once you end round 2, you cannot restart again.
+	</div>
+	</div>
+	</section>
+	
+	{% else %}
+	
+	<section class="bg-secondary" id="about"> 
+ <div class="container">
+ <div class="col-lg-8 mx-auto text-center">
+ You have submiited the codes.
+   </div>
+  </div>
+</section>
+	{% endifequal %}
+	{% else %}
+	Please login first!
+	{% endif %}
+{% endblock %}
