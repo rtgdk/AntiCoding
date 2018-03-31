@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'app/base.html' %}
 {% load static %}
 {% load staticfiles %}
@@ -31,3 +32,38 @@
 	{% endif %}
 {% endblock %}	
 
+=======
+{% extends 'app/base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block body1 %}
+	{% if user.is_authenticated %}
+  <section class="bg-primary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading text-white">Round 1</h2>
+            <hr class="light my-4">
+            <p class="text-faded mb-4">Make sure you have registered your team. Do write your team name on the answer sheet.</p>
+			<p class="text-faded mb-4">This round consists of 10 questions based on C programming language.</p>
+			<p class="text-faded mb-4">Each question caries 5 points (total 50 points) and will be added with the score of round 2.</p>
+			<p class="text-faded mb-4">Write appropriate output / type of error for the questions and do mention suitable assumptions if any on the answer sheet.</p>
+			<p class="text-faded mb-4">Use of internet / compiler is strictly prohibited.
+									Your answers will be checked during Round 2 and your score listed on the scoreboard. The sum of the scores of both the rounds will be used for final rankings.</p>
+            {% ifequal admround1 1 %}
+			<a class="btn btn-light btn-xl js-scroll-trigger" href="{% static 'Round1-AntiCoding.pdf' %}">Download</a>
+			{% endifequal %}
+			{% ifequal admround2 1 %}
+			<a class="btn btn-light btn-xl js-scroll-trigger" href="{% static 'round1-sol.pdf' %}">Answers</a>
+			{% endifequal %}
+          </div>
+        </div>
+      </div>
+    </section>
+	<!-- Bootstrap core JavaScript -->
+	{% else %}
+	Please login first!
+	{% endif %}
+{% endblock %}	
+
+>>>>>>> 76810e78b27247731da679ef829a38aa5a8475ff

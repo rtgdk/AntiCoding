@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'app/base.html' %}
 {% load static %}
 {% load staticfiles %}
@@ -26,4 +27,34 @@
 	{% endif %}
    
 
+=======
+{% extends 'app/base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block body1 %}
+	{% if user.is_authenticated %}
+	 <section class="bg-secondary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading text-white">Round 2</h2>
+            <hr class="light my-4">
+            <p class="text-faded mb-4">In this round you are given 5 programming questions to solve for 100 points each, however if you get a negative score, check the evaluation function for that.</p>
+			<p class="text-faded mb-4">You are supposed to write a program in C or Java to solve the problem</p>
+			<p class="text-faded mb-4">Your Solution will be evaluated according to the algorithm mentioned <a href="{% static 'round_2_marking.pdf' %}">here</a></p>
+			<p class="text-faded mb-4">You can find a reference to ASCII values <a href="/app/ascii/">here</a></p>
+			{% ifequal admround2 1 %}
+			<a class="btn btn-light btn-xl js-scroll-trigger" href="{% static 'Round2-AC.pdf' %}">Download PDF</a>
+			<a class="btn btn-dark btn-xl js-scroll-trigger" href="/app/round2upload/">Upload code</a>
+			{% endifequal %}
+			</div>
+			</div>
+        </div>
+      </section>
+	{% else %}
+	Please login first!
+	{% endif %}
+   
+
+>>>>>>> 76810e78b27247731da679ef829a38aa5a8475ff
 {% endblock %}	

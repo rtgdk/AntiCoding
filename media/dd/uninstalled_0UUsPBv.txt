@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 git done
 heroku done
 notepad++ done
@@ -11,3 +12,18 @@ wise autoshutdown
 
 
 changing fast startup off
+=======
+git done
+heroku done
+notepad++ done
+gta
+cs done
+winrar
+vlc done
+connectify
+picasa done
+wise autoshutdown
+
+
+changing fast startup off
+>>>>>>> 76810e78b27247731da679ef829a38aa5a8475ff
